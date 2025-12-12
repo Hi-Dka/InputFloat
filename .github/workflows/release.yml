@@ -1,0 +1,32 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  release:
+    runs-on: macos-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build
+        run: xcodebuild build -project InputFloat.xcodeproj -scheme InputFloat -destination 'platform=macOS' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CONFIGURATION_BUILD_DIR=build
+
+      - name: Archive App
+        run: |
+          cd build
+          zip -r InputFloat.zip InputFloat.app
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: build/InputFloat.zip
+          generate_release_notes: true
+          draft: false
+          prerelease: false
