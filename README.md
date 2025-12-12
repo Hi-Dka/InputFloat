@@ -2,7 +2,9 @@
 
 InputFloat 是一个 macOS 应用程序，用于在屏幕上通过浮动窗口实时显示当前输入法的状态。
 
-![InputFloat Screenshot](images/image.png)
+<p align="center">
+  <img src="images/image.png" width="300" alt="InputFloat Screenshot">
+</p>
 
 ## 功能特点
 
@@ -18,3 +20,8 @@ InputFloat 是一个 macOS 应用程序，用于在屏幕上通过浮动窗口�
 1. 克隆仓库
 2. 使用 Xcode 打开 `InputFloat.xcodeproj`
 3. 构建并运行
+
+## 参考
+
+[InputSourcePro](https://github.com/runjuu/InputSourcePro)。
+
